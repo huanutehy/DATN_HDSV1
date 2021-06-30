@@ -41,7 +41,6 @@ public class MainMap extends FragmentActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
         Spinner();
 
-        // ke();
 
     }
 
@@ -90,7 +89,7 @@ public class MainMap extends FragmentActivity implements OnMapReadyCallback {
 //        LatLng ute1 = new LatLng(20.8590086, 105.9996825);
 //        LatLng ute2 = new LatLng(20.9450817, 106.0391655);
 //        LatLng ute3 = new LatLng(20.9364662, 106.31045);
-         map.addMarker(new MarkerOptions().position(nhavien).title("Nhà của viên "));
+         map.addMarker(new MarkerOptions().position(nhavien).title("Cửa hàng số 1 "));
 //        map.addMarker(new MarkerOptions().position(ute1).title("cs1"));
 //        map.addMarker(new MarkerOptions().position(ute2).title("Cs2"));
 //        map.addMarker(new MarkerOptions().position(ute3).title("Cs3"));

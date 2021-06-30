@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Fragment.FragmentFavourite">
+
     <androidx.appcompat.widget.Toolbar
+        app:title="Sản phẩm yêu thích"
         android:id="@+id/tbaddkh"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:title="Sản Phẩm Yêu Thích"
-        app:titleTextColor="#000000">
-
-    </androidx.appcompat.widget.Toolbar>
+        android:layout_height="wrap_content"
+        android:background="#3C9DEA"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"/>
     <ListView
         android:id="@+id/lvdm"
         android:layout_width="match_parent"

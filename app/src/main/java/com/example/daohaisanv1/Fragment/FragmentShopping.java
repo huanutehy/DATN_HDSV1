@@ -54,13 +54,12 @@ public class FragmentShopping extends Fragment {
         recyclerView = view.findViewById(R.id.test);
         tvsreach=view.findViewById(R.id.tvsreach);
         recyclerView1= view.findViewById(R.id.dodung);
-        ///////////////////////////////
         obj = new ArrayList<Sale>();
         adap = new AdapterSale(getActivity(), obj);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         recyclerView.setAdapter(adap);
-        //////////////////////////////////
+
 
         objdd= new ArrayList<Product>();
        adapdd= new AdapterProduct(getActivity(),objdd);

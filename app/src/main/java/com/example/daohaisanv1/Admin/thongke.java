@@ -38,7 +38,7 @@ import java.util.Map;
 
 public class thongke extends AppCompatActivity {
     ArrayList<objthongke> mang;
-    ArrayList<objthongke> mang1;
+    ArrayList<objthongke>mang1;
     BarChart barChart;
     Toolbar toolbar;
     Button btnnam;
@@ -49,7 +49,6 @@ public class thongke extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thongke2);
-
         anhxa();
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -57,21 +56,12 @@ public class thongke extends AppCompatActivity {
         mang1 = new ArrayList<>();
         Getdata();
         ActionBar();
-//        btnnam.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String tukhoa = editText.getText().toString().trim();
-//                Log.d("Tukhoa",tukhoa);
-//                String query = "SELECT Year(ngay) as ngay, sum(tongtien) as tongtien FROM donhang WHERE  Year(ngay) >= "+tukhoa+-4+" AND  Year(ngay) <=  "+tukhoa+" GROUP BY Year(ngay)";
-//                Nam(query);
-//            }
-//        });
+
     }
     private void anhxa() {
         barChart = findViewById(R.id.bieudo);
         toolbar = (Toolbar) findViewById(R.id.tool_thongke);
-//        btnnam = (Button) findViewById(R.id.btnNam);
-//        editText= (EditText) findViewById(R.id.edt);
+
 
     }
     private void ActionBar() {
@@ -104,30 +94,19 @@ public class thongke extends AppCompatActivity {
                         }
                         Log.d("JSON", mang.toString());
                         ArrayList<BarEntry> v = new ArrayList<>();
-                        int thang1 = Integer.parseInt(mang.get(0).getThoigian());
-                        int tongtien1 = mang.get(0).getTongtien();
-                        int thang2 = Integer.parseInt(mang.get(1).getThoigian());
-                        int tongtien2 = mang.get(1).getTongtien();
-                        int thang3 = Integer.parseInt(mang.get(2).getThoigian());
-                        int tongtien3 = mang.get(2).getTongtien();
-                        int thang4 = 0;
-                        int tongtien4 = 0;
-                        int thang5 = 0;
-                        int tongtien5 = 0;
-                        int thang6 = 0;
-                        int tongtien6 = 0;
-//                        int thang7 = Integer.parseInt(mang.get(0).getThang());
-//                        int tongtien7 = mang.get(0).getTongtien();
-//                        int thang8 = Integer.parseInt(mang.get(1).getThang());
-//                        int tongtien8 = mang.get(1).getTongtien();
-//                        int thang9 = Integer.parseInt(mang.get(2).getThang());
-//                        int tongtien9 = mang.get(2).getTongtien();
-//                        int thang10 = Integer.parseInt(mang.get(3).getThoigian());
-//                        int tongtien10 = mang.get(3).getTongtien();
-//                        int thang11 = Integer.parseInt(mang.get(4).getThang());
-//                        int tongtien11 = mang.get(4).getTongtien();
-//                        int thang12 = Integer.parseInt(mang.get(5).getThang());
-//                        int tongtien12 = mang.get(5).getTongtien();
+                        int thang1 = 0;
+                        int tongtien1 = 0;
+                        int thang2 = 0;
+                        int tongtien2 = 0;
+//                        int thang3 = Integer.parseInt(mang.get(2).getThoigian());
+                        // int tongtien3 = mang.get(2).getTongtien();
+                        int thang4 = Integer.parseInt(mang.get(0).getThoigian());
+                        int tongtien4 = mang.get(0).getTongtien();
+                        int thang5 =Integer.parseInt(mang.get(1).getThoigian());
+                        int tongtien5 = mang.get(1).getTongtien();
+                        int thang6 =Integer.parseInt(mang.get(2).getThoigian());
+                        int tongtien6 =  mang.get(2).getTongtien();
+
                         int thang7 = 0;
                         int tongtien7 = 0;
                         int thang8 = 0;
@@ -143,7 +122,7 @@ public class thongke extends AppCompatActivity {
 
                         v.add(new BarEntry(thang1, tongtien1));
                         v.add(new BarEntry(thang2, tongtien2));
-                        v.add(new BarEntry(thang3, tongtien3));
+                        //  v.add(new BarEntry(thang3, tongtien3));
                         v.add(new BarEntry(thang4, tongtien4));
                         v.add(new BarEntry(thang5, tongtien5));
                         v.add(new BarEntry(thang6, tongtien6));

@@ -37,7 +37,7 @@
                         android:layout_height="96dp"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
-                        android:background="@drawable/logo2" />
+                        android:background="@drawable/fish" />
 
                     <ImageView
                         android:id="@+id/icon"
@@ -65,7 +65,7 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Tên cây"
+                    android:text="Tên sản phẩm"
                     android:textColor="#207307"
                     android:textSize="15sp"
                     android:textStyle="bold" />

@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbartrangthai"
-            android:layout_width="match_parent"
-            android:background="#FFFFFF"
-            app:titleTextColor="#000000"
-            app:title="Danh Sách Đơn Hàng"
-            android:layout_height="?attr/actionBarSize">
-        </androidx.appcompat.widget.Toolbar>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbartrangthai"
+        app:title="Danh sách đơn hàng"
+        android:background="#1C80CF"
+        app:titleTextColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.Toolbar>
     <ListView
         android:id="@+id/lvtrangthai"
         android:layout_width="match_parent"

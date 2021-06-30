@@ -7,15 +7,18 @@
     android:orientation="vertical">
 
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBarthanhtoan"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentTop="true"
-        android:background="#FFFFFF"
-        app:navigationIcon="@drawable/ic_detail_back"
-        app:title="Thanh Toán"
-        app:titleTextColor="#000000"></androidx.appcompat.widget.Toolbar>
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Thanh toán"
+        android:background="#3C9DEA"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_marginTop="5dp"
@@ -358,7 +361,7 @@
                             android:layout_width="74dp"
                             android:layout_height="wrap_content"
 
-                            android:text="30000đ"
+                            android:text="30000"
                             android:textColor="#A39D9D"
                             android:textStyle="italic">
 
@@ -434,7 +437,9 @@
                 android:text="Thanh Toán"
                 android:textSize="12dp"
                 android:textColor="#FFFFFF"
-                app:backgroundTint="#00BCD4"></Button>
+                app:backgroundTint="#00BCD4">
+
+            </Button>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

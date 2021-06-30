@@ -52,16 +52,16 @@ public class MainOrder extends AppCompatActivity {
     ListView listView;
     TextView donhang, sdt, dc, tendv, date, chon;
     public static TextView gia, phiship, ten, tamtinh;
-    Toolbar toolbartt;
+    Toolbar toolbar;
     String urlkh = ConnectServer.khachhang;
     Customer kh;
     Random random;
     Spinner spinner;
-    //adapvc vc;
     public static List<Switch> vct = new ArrayList<>();
 
     String urldonhang = ConnectServer.adddhoadon;
     String urlchitiet = ConnectServer.adddchitiethoadon;
+
     AdapterOder adapterGioHang;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -73,15 +73,14 @@ public class MainOrder extends AppCompatActivity {
         setContentView(R.layout.activity_thanhtoan);
         sharedPreferences = this.getSharedPreferences("luutaikhoan", this.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-        toolbartt = (Toolbar) findViewById(R.id.toolBarthanhtoan);
-        toolbartt.setNavigationIcon(R.drawable.back);
-        toolbartt.setOnClickListener(new View.OnClickListener() {
+        toolbar = findViewById(R.id.toolBarthanhtoan);
+        setSupportActionBar(toolbar);
+     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainOrder.this, MainCart.class);
-                startActivity(intent);
+                finish();
             }
-
         });
 
         anhxa();
@@ -91,8 +90,6 @@ public class MainOrder extends AppCompatActivity {
         //   getdonvi();
         tamtinh();
     }
-
-
 
     private void date() {
         Calendar calendar = Calendar.getInstance();
@@ -123,8 +120,9 @@ public class MainOrder extends AppCompatActivity {
         }
 
         // DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        gia.setText(tongTien + 30000 + " VND");
+        gia.setText(tongTien + 30000 + "");
 
+        Log.d("giatien: ",tongTien+300000+"");
         //}
     }
 
@@ -135,9 +133,10 @@ public class MainOrder extends AppCompatActivity {
             tongTien += listgh.get(i).tongTien();
         }
         // DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        tamtinh.setText(tongTien + "đ");
-    }
+        tamtinh.setText(tongTien+"");
+        Log.d( "tamtinh: ",tongTien+"");
 
+    }
 
     public void anhxa() {
         btkhachhang = findViewById(R.id.ttkhachhang);
@@ -156,7 +155,7 @@ public class MainOrder extends AppCompatActivity {
 
         spinner = findViewById(R.id.vanchuyen);
         String[] dcs = {"Ninja Van", "Viettel Express", "Grap Express", "NowShip", "Hay để tớ ship"};
-        int flags[] = {R.drawable.ninjavan, R.drawable.viettel, R.drawable.grap, R.drawable.now, R.drawable.vienbbb};
+        int flags[] = {R.drawable.ninjavan, R.drawable.viettel, R.drawable.grap, R.drawable.now, R.drawable.username};
         AdapterSwitch vc = new AdapterSwitch(getApplicationContext(), flags, dcs);
 
         //    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, dc);
@@ -183,13 +182,7 @@ public class MainOrder extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        chon.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                Intent intent1 = new Intent(thanhtoan.this, vanchuyen.class);
-////                startActivity(intent1);
-//            }
-//        });
+
     }
 
     private void doThanhToan() {

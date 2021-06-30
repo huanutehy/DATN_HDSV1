@@ -24,38 +24,44 @@ import java.text.DecimalFormat;
 import static com.example.daohaisanv1.Fragment.FragmentHome.listgh;
 
 public class MainInfoSale extends AppCompatActivity {
+    Toolbar toolbar;
 
     Sale sl;
-    ImageView imgcayct;
-    Cart gh;
-    TextView ctcay, ctgia, ctmota,ctsl;
-    Toolbar toolbar;
-    Integer[] soluong;
+    ImageView img;
+    TextView ten_sp, gia_sp, mota_sp,ctsl;
     EditText edgiatri;
-    Button tang, giam, ttmua;
-    ImageButton addgh;
+    Button tang, giam;
+    Button addgh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chitietsale);
+        toolbar = findViewById(R.id.toolBarthongtinchitietsanphamsale);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         anhxa();
         themgh();
         soluong();
         sale();
-//      getdatacay();
     }
 
     private void anhxa() {
-        imgcayct = (ImageView) findViewById(R.id.imageView);
-        ctcay = (TextView) findViewById(R.id.tensp);
-        ctgia = (TextView) findViewById(R.id.giathanh);
-        ctmota = (TextView) findViewById(R.id.dacdiem);
+        img = (ImageView) findViewById(R.id.imageView);
+        ten_sp= (TextView) findViewById(R.id.tensp);
+        gia_sp = (TextView) findViewById(R.id.giathanh);
+        mota_sp = (TextView) findViewById(R.id.dacdiem);
         tang = findViewById(R.id.butontang);
         giam = findViewById(R.id.butongiam);
         edgiatri = findViewById(R.id.edtgiatri);
         ctsl=findViewById(R.id.ctsale);
-        addgh = (ImageButton) findViewById(R.id.addgiohang);
+        addgh = findViewById(R.id.addgiohang);
 
 
     }
@@ -63,12 +69,12 @@ public class MainInfoSale extends AppCompatActivity {
     public void sale() {
         Intent intent = getIntent();
         sl = (Sale) intent.getSerializableExtra("homesale");
-        Picasso.get().load(sl.getImgspsale()).into(imgcayct);
-        ctcay.setText(sl.getTenspsale());
+        Picasso.get().load(sl.getImgspsale()).into(img);
+        ten_sp.setText(sl.getTenspsale());
         ctsl.setText(sl.getSale()+" %");
         DecimalFormat decimalformat = new DecimalFormat("###,###,###");
-        ctgia.setText(decimalformat.format(sl.sale()) + " VNĐ");
-        ctmota.setText(sl.getMota());
+        gia_sp.setText(decimalformat.format(sl.sale()) + " VNĐ");
+        mota_sp.setText(sl.getMota());
     }
 
 

@@ -22,6 +22,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.daohaisanv1.Adapter.Bill.AdapterInfoBill;
@@ -53,8 +54,8 @@ public class MainInfoBill extends AppCompatActivity {
     String urltt = ConnectServer.thanhtoan;
     String urldh = ConnectServer.cthoadon;
     Toolbar toolbar;
-    private SharedPreferences sharedPreferences1;
-    private SharedPreferences.Editor editor1;
+    //    private SharedPreferences sharedPreferences1;
+//    private SharedPreferences.Editor editor1;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -63,11 +64,11 @@ public class MainInfoBill extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chitiethoadon);
-        sharedPreferences1 = this.getSharedPreferences("chitiet", this.MODE_PRIVATE);
-        editor1 = sharedPreferences1.edit();
-        ///////////////////////////////////
         sharedPreferences = this.getSharedPreferences("luutaikhoan", this.MODE_PRIVATE);
-        editor1 = sharedPreferences.edit();
+        editor = sharedPreferences.edit();
+
+        MainBill.sharedPreferences1 = this.getSharedPreferences("chitiet", this.MODE_PRIVATE);
+        MainBill.editor1 = MainBill.sharedPreferences1.edit();
         toolbar = findViewById(R.id.toolBarchitiet);
         toolbar.setNavigationIcon(R.drawable.back2);
         toolbar.setOnClickListener(new View.OnClickListener() {
@@ -78,9 +79,10 @@ public class MainInfoBill extends AppCompatActivity {
 
         });
         anhxa();
+        getcay();
         getDataChiTiet1();
 
-        getcay();
+
     }
 
     private void ThanhToan() {
@@ -178,12 +180,11 @@ public class MainInfoBill extends AppCompatActivity {
     }
 
     private void getcay() {
-
         RequestQueue connnect = Volley.newRequestQueue(this);
         StringRequest jsonArray = new StringRequest(Request.Method.POST, urldh, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                int id = sharedPreferences1.getInt("madonhang", 0);
+                int id = MainBill.sharedPreferences1.getInt("madonhang", 5);
                 Log.e("run: ", id + " ---- " + response.toString());
                 try {
                     JSONArray jsonArray = new JSONArray(response);
@@ -198,18 +199,13 @@ public class MainInfoBill extends AppCompatActivity {
                         String igmsp = jsonsp.getString("imgsp");
                         int sl = jsonsp.getInt("soluong");
                         objdh.add(new InfoBill(idct, id1, masp, tensp, gia, igmsp, sl));
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-
                 adtt.notifyDataSetChanged();
                 // Toast.makeText(getContext().getApplicationContext(), ""+yt.size(), Toast.LENGTH_SHORT).show();
-
             }
-
         },
                 new Response.ErrorListener() {
                     @Override
@@ -217,21 +213,22 @@ public class MainInfoBill extends AppCompatActivity {
                         Log.e("erro:", error.toString());
 
                         Toast.makeText(MainInfoBill.this, error.toString(), Toast.LENGTH_SHORT).show();
-
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> pra = new HashMap<>();
-                int id = sharedPreferences1.getInt("madonhang", 0);
-                pra.put("idhd", String.valueOf(id));
+                //  int id = MainBill.sharedPreferences1.getInt("madonhang", 0);
+                Intent intent = getIntent();
+                String dh = intent.getStringExtra("madonhang");
+                Log.d(String.valueOf(dh), "aaaaaaaaa");
+                pra.put("idhd", String.valueOf(dh));
                 return pra;
             }
         };
         connnect.add(jsonArray);
 
     }
-
 
 
 

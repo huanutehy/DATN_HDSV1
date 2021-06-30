@@ -1,153 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
-            android:scaleType="centerCrop"
-            android:src="@drawable/customcolor" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    android:background="@drawable/bggg"
+   >
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:text="Đăng Nhập"
+        android:textColor="@color/textHeading"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="?actionBarSize"
-            android:text="Green Tree"
-            android:textColor="#fff"
-            android:textSize="40sp"
-            android:textStyle="bold" />
+    </TextView>
 
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign in"
-            android:textColor="#fff"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/txttaikhoan"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:layout_margin="20dp"
-            android:background="@drawable/custtom_edit_text_code"
-            android:hint="Email"
-            android:paddingStart="10dp"
-            android:paddingLeft="10dp"
-            android:textColor="#000000"
-            android:textColorHint="#00BCD4"
-            android:textSize="17sp" />
-
-        <EditText
-            android:id="@+id/txtmatkhau"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:layout_margin="20dp"
-            android:background="@drawable/custtom_edit_text_code"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:paddingStart="10dp"
-            android:paddingLeft="10dp"
-            android:textColor="#000000"
-            android:textColorHint="#00BCD4"
-            android:textSize="17sp" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-
-            <Button
-
-                android:id="@+id/btn_dangnhap"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:background="@drawable/botron"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="sign in"
-
-                android:textColor="#00BCD4" />
-
-
-        </FrameLayout>
-        <TextView
-            android:id="@+id/TxtRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Register"
-            android:textColor="#fff" />
-        <TextView
-            android:id="@+id/forgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Forgot Password?"
-            android:textColor="#fff" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:layout_marginTop="60dp"
+        android:id="@+id/txttaikhoan"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_text_bg"
+        android:drawableLeft="@drawable/ic_baseline_account_circle"
+        android:drawablePadding="10dp"
+        android:elevation="3dp"
+        android:hint="Email"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintWidth_percent=".8">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Or Signup with" />
+    </EditText>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/txtmatkhau"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_bg"
+        android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+        android:drawablePadding="10dp"
+        android:elevation="3dp"
+        android:hint="Passwors"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txttaikhoan"
+        app:layout_constraintWidth_percent=".8">
 
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/google" />
+    </EditText>
 
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/facebook_box" />
+    <Button
+        android:backgroundTint="@color/pink"
+        android:id="@+id/btn_dangnhap"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="signin"
+        android:padding="15dp"
+        android:text="Đăng nhập"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtmatkhau"
+        app:layout_constraintVertical_bias="0.192"
+        app:layout_constraintWidth_percent=".4">
 
-        </LinearLayout>
+    </Button>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bạn chưa có tài khoản ?"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txtmatkhau"
+        app:layout_constraintHorizontal_bias=".3"
+        app:layout_constraintStart_toStartOf="@+id/txtmatkhau"
+        app:layout_constraintTop_toBottomOf="@+id/btn_dangnhap"
+        app:layout_constraintVertical_bias=".2">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/TxtRegister"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng ký"
+        android:textColor="@color/blue"
+        android:textSize="19dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2">
 
 
-    </LinearLayout>
-
-</RelativeLayout>
+    </TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>

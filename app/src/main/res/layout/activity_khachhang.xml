@@ -7,15 +7,18 @@
     android:orientation="vertical"
     tools:context=".Main.Customer.MainCustomer">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbkhachhang"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#F44336"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:title="Chọn địa chỉ giao hàng"
-        app:titleTextColor="#FFFFFF">
-
-    </androidx.appcompat.widget.Toolbar>
+        android:background="#3C9DEA"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"/>
 
     <Button
         android:id="@+id/addkhachhang"

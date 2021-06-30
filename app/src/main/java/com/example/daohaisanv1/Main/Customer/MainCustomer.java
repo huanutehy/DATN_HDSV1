@@ -49,6 +49,15 @@ public class MainCustomer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_khachhang);
+        toolbar = findViewById(R.id.tbkhachhang);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         sharedPreferences = MainCustomer.this.getSharedPreferences("luutaikhoan", MainCustomer.this.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         anhxa();
@@ -62,7 +71,6 @@ public class MainCustomer extends AppCompatActivity {
         kh = new ArrayList<Customer>();
         adapkhachhang = new AdapterCustomer(MainCustomer.this, kh);
         lvkh.setAdapter(adapkhachhang);
-        toolbar = (Toolbar) findViewById(R.id.tbkhachhang);
     }
 
     public void event() {
@@ -105,19 +113,19 @@ public class MainCustomer extends AppCompatActivity {
                 try {
 
                     JSONArray jsonArray = new JSONArray(response);
-                     for (int i = 0; i < response.length(); i++) {
-                         Log.d("erro:", jsonArray.toString());
-                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                         int idtk = jsonObject.getInt("idtk");
-                         int id = jsonObject.getInt("idkh");
-                         String hoten = jsonObject.getString("hoten");
-                         int sdt = jsonObject.getInt("sdt");
-                         String diachi = jsonObject.getString("diachi");
-                         kh.add(new Customer(idtk, id, hoten, sdt, diachi));
-                     }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    for (int i = 0; i < response.length(); i++) {
+                        Log.d("erro:", jsonArray.toString());
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        int idtk = jsonObject.getInt("idtk");
+                        int id = jsonObject.getInt("idkh");
+                        String hoten = jsonObject.getString("hoten");
+                        int sdt = jsonObject.getInt("sdt");
+                        String diachi = jsonObject.getString("diachi");
+                        kh.add(new Customer(idtk, id, hoten, sdt, diachi));
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 adapkhachhang.notifyDataSetChanged();
             }

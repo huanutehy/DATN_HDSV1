@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
@@ -38,8 +39,8 @@ import java.util.Map;
 import static com.example.daohaisanv1.Fragment.FragmentHome.yt;
 
 public class FragmentFavourite extends Fragment {
-    String urlcaycanh = ConnectServer.yeuthich;
-   // public static ArrayList<objyeuthich> yt;
+    String urlyeuthich = ConnectServer.yeuthich;
+    Toolbar toolbar;
     AdapterFavourite like;
     ListView lv;
     Button btyt;
@@ -48,12 +49,13 @@ public class FragmentFavourite extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_yeuthich, container, false);
+
         sharedPreferences = getActivity().getSharedPreferences("luutaikhoan", getActivity().MODE_PRIVATE);
         editor = sharedPreferences.edit();
         lv = view.findViewById(R.id.lvyt);
 
         anhxa();
-        getcay();
+        getsanpham();
         xoa();
         return view;
     }
@@ -94,10 +96,10 @@ public class FragmentFavourite extends Fragment {
         });
     }
 
-    private void getcay() {
+    private void getsanpham() {
 
         RequestQueue connnect = Volley.newRequestQueue(getActivity());
-        StringRequest jsonArray = new StringRequest(Request.Method.POST, urlcaycanh, new Response.Listener<String>() {
+        StringRequest jsonArray = new StringRequest(Request.Method.POST, urlyeuthich, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -120,7 +122,6 @@ public class FragmentFavourite extends Fragment {
 
 
                 like.notifyDataSetChanged();
-                // Toast.makeText(getContext().getApplicationContext(), ""+yt.size(), Toast.LENGTH_SHORT).show();
 
             }
 

@@ -2,27 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/trangchu"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/ic_home"
         android:title="Trang Chủ" />
 
     <item
         android:id="@+id/dao"
-        android:icon="@drawable/ic_local_florist_black_24dp"
-        android:title="Dạo" />
+        android:icon="@drawable/hott"
+        android:title="Hot" />
     <item
         android:id="@+id/yeuthich"
         android:icon="@drawable/yeuthich"
         android:title="Yêu thích"></item>
     <item
         android:id="@+id/taikhoan"
-        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:icon="@drawable/ic_user"
         android:title="Tài khoản">
 
     </item>
     <item
         android:id="@+id/thongke"
         android:icon="@drawable/ic_insert_invitation_black_24dp"
-        android:title="Thống kê">
+        android:title="Quản lý cửa hàng">
 
     </item>
 </menu>

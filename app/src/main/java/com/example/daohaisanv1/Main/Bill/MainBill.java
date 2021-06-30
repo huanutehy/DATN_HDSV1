@@ -42,8 +42,8 @@ public class MainBill extends AppCompatActivity {
     String urldh = ConnectServer.donhang;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    private SharedPreferences sharedPreferences1;
-    private SharedPreferences.Editor editor1;
+    public static SharedPreferences sharedPreferences1;
+    public static SharedPreferences.Editor editor1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +54,8 @@ public class MainBill extends AppCompatActivity {
 
         sharedPreferences1 = this.getSharedPreferences("chitiet", this.MODE_PRIVATE);
         editor1 = sharedPreferences1.edit();
-        listView = findViewById(R.id.lvdh);
 
+        listView = findViewById(R.id.lvdh);
         toolbar = findViewById(R.id.tbdonhang);
         toolbar.setNavigationIcon(R.drawable.back);
         toolbar.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +76,7 @@ public class MainBill extends AppCompatActivity {
                 if (response.equals("ok")) {
                     Toast.makeText(MainBill.this, "  Đơn hàng đã bị hủy", Toast.LENGTH_SHORT).show();
                     getdonhang();
-                   finish();
+                    finish();
                 }
             }
 
@@ -119,7 +119,7 @@ public class MainBill extends AppCompatActivity {
                 editor1.putString("trangthai", objdh.get(position).getTrangthai().toString());
                 editor1.commit();
                 Intent intent = new Intent(MainBill.this, MainInfoBill.class);
-                intent.putExtra("madonhang", "#" + objdh.get(position).getIddh() + "");
+               intent.putExtra("madonhang",objdh.get(position).getIddh() + "");
                 intent.putExtra("sdt", "0" + objdh.get(position).getSdt() + "");
                 intent.putExtra("tenkh", objdh.get(position).getTenkh().toString());
                 intent.putExtra("diachi", objdh.get(position).getDiachigh().toString());
@@ -174,6 +174,7 @@ public class MainBill extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> pra = new HashMap<>();
                 int id = sharedPreferences.getInt("id", 0);
+                Log.d(String.valueOf(id), "bbbbbbbbbbbbb");
                 pra.put("idtaikhoan", String.valueOf(id));
 
                 return pra;

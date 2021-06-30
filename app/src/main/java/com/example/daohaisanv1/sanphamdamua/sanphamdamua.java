@@ -3,11 +3,13 @@ package com.example.daohaisanv1.sanphamdamua;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -33,7 +35,8 @@ import java.util.Map;
 import static com.example.daohaisanv1.Fragment.FragmentHome.yt;
 
 public class sanphamdamua extends AppCompatActivity {
-    String urlcaycanh = ConnectServer.yeuthich;
+    Toolbar toolbar;
+    String urlspyeuthich = ConnectServer.yeuthich;
     // public static ArrayList<objyeuthich> yt;
     AdapterFavourite like;
     ListView lv;
@@ -44,12 +47,21 @@ public class sanphamdamua extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sanphamdamua);
+        toolbar = findViewById(R.id.tbaddkh);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         sharedPreferences = com.example.daohaisanv1.sanphamdamua.sanphamdamua.this.getSharedPreferences("luutaikhoan", sanphamdamua.this.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         lv = findViewById(R.id.lvdm);
 
         anhxa();
-        getcay();
+        getsanpham();
 
 
     }
@@ -68,7 +80,7 @@ public class sanphamdamua extends AppCompatActivity {
                 Log.e("onResponse: ",response.toString() );
                 if (response.equals("ok")) {
                     Toast.makeText(sanphamdamua.this, "  Đơn hàng đã bị hủy", Toast.LENGTH_SHORT).show();
-                    getcay();
+                    getsanpham();
 
                 }
             }
@@ -93,10 +105,10 @@ public class sanphamdamua extends AppCompatActivity {
 
 
     }
-    public void getcay() {
+    public void getsanpham() {
 
         RequestQueue connnect = Volley.newRequestQueue(sanphamdamua.this);
-        StringRequest jsonArray = new StringRequest(Request.Method.POST, urlcaycanh, new Response.Listener<String>() {
+        StringRequest jsonArray = new StringRequest(Request.Method.POST, urlspyeuthich, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

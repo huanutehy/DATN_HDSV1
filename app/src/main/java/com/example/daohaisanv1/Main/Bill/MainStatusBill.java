@@ -1,10 +1,12 @@
 package com.example.daohaisanv1.Main.Bill;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -28,6 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainStatusBill extends AppCompatActivity {
+    Toolbar toolbar;
 
     ArrayList<StatusBill> mangxacnhan;
     private ListView lvtrangthai;
@@ -37,30 +40,19 @@ public class MainStatusBill extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tinhtrangdonhang);
+        toolbar = findViewById(R.id.toolbartrangthai);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         anhxa();
-        //Actiontoolbar();
         getdatadonhang();
     }
 
-//    //menu
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu, menu);
-//        SearchView searchView = (SearchView) menu.findItem(R.id.menusearch).getActionView();
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String s) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//                xacnhanAdapter.filter(s.trim());
-//                return false;
-//            }
-//        });
-//        return true;
-//    }
 
 
     private void getdatadonhang() {

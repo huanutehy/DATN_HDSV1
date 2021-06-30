@@ -51,7 +51,7 @@ public class MainAddCustomer extends AppCompatActivity {
     }
 
     public void event() {
-        Toolbar bar = (Toolbar) findViewById(R.id.tbaddkh);
+        Toolbar bar = findViewById(R.id.tbaddkh);
         bar.setTitle("Hủy bỏ");
         bar.setOnClickListener(new View.OnClickListener() {
             @Override

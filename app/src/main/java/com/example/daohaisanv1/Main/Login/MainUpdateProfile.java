@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -33,12 +34,21 @@ public class MainUpdateProfile extends AppCompatActivity {
     TextView tvtk;
     SharedPreferences luutaikhoan;
     Button btnluu, btnhuy;
-
-    //  List<objacc> acc = new ArrayList<>();
+     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_updatetaikhoan);
+        toolbar = findViewById(R.id.toolupdate);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         AnhXa();
         luutaikhoan = getSharedPreferences("luutaikhoan", Context.MODE_PRIVATE);
         btnluu.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +110,6 @@ public class MainUpdateProfile extends AppCompatActivity {
 
     private void AnhXa() {
         btnluu = (Button) findViewById(R.id.btnluuthongtin);
-
         tvtk = (TextView) findViewById(R.id.edtaikhoan);
         edtmk = (EditText) findViewById(R.id.edmatkhau);
         edthoten = (EditText) findViewById(R.id.edhoten);

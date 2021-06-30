@@ -44,8 +44,12 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_below="@+id/divider"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/greentreee"></ImageView>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/dhsv1"></ImageView>
 
         <TextView
             android:id="@+id/tv_hitory_product_name"

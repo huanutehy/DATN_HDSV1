@@ -1,7 +1,7 @@
 package com.example.daohaisanv1.ConnectServer;
 
 public class ConnectServer {
-    public static String IPv4 = "192.168.1.10";
+    public static String IPv4 = "192.168.1.12";
     public static String trangchu = "http://" + IPv4 + "/server/home.php";
     public static String sale = "http://" + IPv4 + "/server/getgiamgia.php";
     public static String dodung = "http://" + IPv4 + "/server/getcaycanh.php";

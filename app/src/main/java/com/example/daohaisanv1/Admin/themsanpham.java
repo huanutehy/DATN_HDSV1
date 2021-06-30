@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -26,44 +26,45 @@ import java.util.Map;
 public class themsanpham extends AppCompatActivity {
 
     EditText id, ten, img, gia, mota;
+
     Button addkh;
 
-    String url = "http://192.168.43.28/server/addsanpham.php";
+    String url = "http://192.168.1.12/server/addsanpham.php";
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_themsanpham);
+        toolbar = findViewById(R.id.tooladd);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         ten = (EditText) findViewById(R.id.addtensp);
         img = (EditText) findViewById(R.id.addlink);
         gia = (EditText) findViewById(R.id.addgia);
         mota = (EditText) findViewById(R.id.addmota);
         addkh = (Button) findViewById(R.id.addsanpham);
-
         event();
     }
 
     public void event() {
-       toolbar = findViewById(R.id.tooladd);
-        toolbar.setNavigationIcon(R.drawable.back2);
-        toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(themsanpham.this, sanpham.class);
-                startActivity(intent);
-            }
-        });
+
         addkh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String ten1 = ten.getText().toString().trim();
                 String img1 = img.getText().toString().trim();
-                String gia1 = gia.getText().toString().trim();
+                int gia1 = Integer.parseInt(gia.getText().toString().trim());
                 String mota1 = mota.getText().toString().trim();
-                if (ten1.isEmpty() || img1.isEmpty() || gia1.isEmpty() || mota1.isEmpty()) {
+                if (ten1.isEmpty() || img1.isEmpty()  || mota1.isEmpty()) {
                     Toast.makeText(themsanpham.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
 
                 } else {

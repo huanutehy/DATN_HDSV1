@@ -82,7 +82,7 @@ public class donhangadmin extends AppCompatActivity {
                 editor1.putInt("tongtien",objdh.get(position).getTt());
                 editor1.commit();
                 Intent intent = new Intent(donhangadmin.this, MainInfoBill.class);
-                intent.putExtra("madonhang", "#"+objdh.get(position).getIddh() + "");
+                intent.putExtra("madonhang",+objdh.get(position).getIddh() + "");
                 intent.putExtra("sdt", "0" + objdh.get(position).getSdt() + "");
                 intent.putExtra("tenkh", objdh.get(position).getTenkh().toString());
                 intent.putExtra("diachi", objdh.get(position).getDiachigh().toString());

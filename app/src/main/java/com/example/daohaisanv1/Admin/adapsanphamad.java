@@ -38,8 +38,6 @@ public class adapsanphamad extends RecyclerView.Adapter<adapsanphamad.ViewHolder
     ArrayList<Product> listsp;
     ArrayList<Product> sreachhome;
 
-//        this.sreachhome= new ArrayList<objhome>();
-//        this.sreachhome.addAll(listhome);
 
 
     public adapsanphamad(sanpham applicationContext, ArrayList<Product> sp) {

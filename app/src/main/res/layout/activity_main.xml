@@ -8,30 +8,34 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></LinearLayout>
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarmanhinh"
         android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="30dp">
+        android:background="@drawable/nen2">
         />
 
         <LinearLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#59FFFFFF"
-            android:orientation="horizontal"
-            >
+            android:layout_marginRight="20dp"
+            android:gravity="center">
 
             <LinearLayout
-                android:layout_width="345dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/nen2"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <ImageButton
+                    android:layout_marginLeft="15dp"
+                    android:layout_gravity="center"
                     android:id="@+id/srach"
                     android:layout_width="35dp"
                     android:layout_height="40dp"
@@ -41,22 +45,24 @@
 
                 <TextView
                     android:id="@+id/tvsreach"
-                    android:layout_width="300dp"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
                     android:text="Bạn cần mua gì ?">
 
                 </TextView>
+                <ImageButton
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/giohang"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/giohang"
+                    app:backgroundTint="@color/white" />
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/giohang"
-                android:layout_width="35dp"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/giohang"
-                app:backgroundTint="#FFFFFF" />
 
         </LinearLayout>
+
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -96,7 +102,9 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="92dp"
-                                android:background="@drawable/bg_form"></ImageView>
+                                android:background="@drawable/bg_form">
+
+                            </ImageView>
 
                             <androidx.viewpager.widget.ViewPager
                                 android:id="@+id/vp_slide_photo"
@@ -160,6 +168,7 @@
                                     android:layout_marginRight="11dp"
                                     android:background="#00000000"
                                     android:text="Xem Thêm >>"
+                                    android:textStyle="bold"
                                     android:textColor="#C803A9F4"
                                     android:textSize="10dp">
 
@@ -198,7 +207,7 @@
                                 android:layout_marginLeft="10dp"
 
                                 android:background="#00000000"
-                                android:text=" Cây cảnh"
+                                android:text="Sản phẩm"
                                 android:textColor="#000000"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
@@ -212,7 +221,6 @@
                                     android:layout_width="372dp"
                                     android:layout_height="match_parent"
                                     android:layout_alignParentEnd="true"
-
                                     android:layout_alignParentRight="true"
                                     android:layout_marginEnd="13dp"
                                     android:layout_marginRight="13dp">

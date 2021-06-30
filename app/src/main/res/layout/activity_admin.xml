@@ -4,38 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F1DEA5"
 
-    android:background="@drawable/cay_1"
     android:orientation="vertical">
-    <Button
-        android:text="Thống kê"
-        android:background="#862196F3"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_thongke"
+        android:background="#1C80CF"
+        app:titleTextColor="#FFFFFF"
         android:layout_width="match_parent"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
         android:layout_height="wrap_content"
-        android:id="@+id/thongke">
+        app:title="Quản lý cửa hàng">
 
-    </Button>
-    <Button
-        android:background="#79F44336"
+    </androidx.appcompat.widget.Toolbar>
+
+    <TableRow
         android:layout_width="match_parent"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:text="San Pham"
         android:layout_height="wrap_content"
-        android:id="@+id/adsanpham">
+        android:gravity="center">
 
-    </Button>
-    <Button
-        android:background="#77FFEB3B"
+
+
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/adsanpham"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/storee"
+            android:textColor="@color/black"
+            android:text="Sản phẩm" />
+
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/hoadon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+
+            android:drawableTop="@drawable/donhangg"
+            android:textColor="@color/black"
+            android:text="Đơn hàng" />
+
+    </TableRow>
+    <TableRow
         android:layout_width="match_parent"
-        android:textColor="#FFFFFF"
-        android:text="Don Hang"
-        android:textStyle="bold"
         android:layout_height="wrap_content"
-        android:id="@+id/hoadon">
+        android:gravity="center"
+        >
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/thongke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/thongkee"
+            android:textColor="@color/black"
+            android:text="Thống kê" />
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/taikhoann"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/userr"
+            android:textColor="@color/black"
+            android:text="Tài khoản" />
 
-    </Button>
+    </TableRow>
+    <TableRow
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/dangxuatt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:text="Đăng xuất" />
+
+    </TableRow>
 
 </LinearLayout>

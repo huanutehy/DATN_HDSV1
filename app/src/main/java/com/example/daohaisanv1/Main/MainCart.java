@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 
 import com.example.daohaisanv1.Adapter.AdapterCart;
@@ -29,11 +30,11 @@ import java.text.DecimalFormat;
 import static com.example.daohaisanv1.Fragment.FragmentHome.listgh;
 
 public class MainCart extends AppCompatActivity {
+    Toolbar toolbar;
 
     public static TextView tvTongTien;
     Button btthanhtoan, ttmuahag;
     ListView lvGioHang;
-    TextView sosanpham;
 
     AdapterCart adapterGioHang;
     private SharedPreferences sharedPreferences;
@@ -43,6 +44,15 @@ public class MainCart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_giohang);
+        toolbar = findViewById(R.id.toolBarGioHang);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         sharedPreferences = this.getSharedPreferences("luutaikhoan", this.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -56,11 +66,9 @@ public class MainCart extends AppCompatActivity {
         lvGioHang = (ListView) findViewById(R.id.lvGioHang);
         tvTongTien = (TextView) findViewById(R.id.tongtien);
         ttmuahag = (Button) findViewById(R.id.ttmuahang);
-        sosanpham = findViewById(R.id.numbercart);
-        int dem = listgh.size();
-        Log.d( "anhxa: ", String.valueOf(dem));
+   int dem = listgh.size();
+  Log.d( "anhxa: ", String.valueOf(dem));
 
-        sosanpham.setText("("+dem+")");
         btthanhtoan = (Button) findViewById(R.id.thanhtoan);
         adapterGioHang = new AdapterCart(getApplicationContext(), listgh);
         lvGioHang.setAdapter(adapterGioHang);
@@ -81,16 +89,6 @@ public class MainCart extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (FragmentHome.listgh.size() > 0) {
-//                    if (thongtin.acc.size() == 0) {
-//                        Intent intent = new Intent(giohang.this, dangnhap.class);
-//                        startActivity(intent);
-//                    } else {
-//                        Intent intent = new Intent(giohang.this, thanhtoan.class);
-//                        startActivity(intent);
-//                    }
-//                } else {
-//                    Toast.makeText(giohang.this, "Bạn chưa nhập sản phẩm nào cho giỏ hàng!", Toast.LENGTH_SHORT).show();
-//                    return;
 
                             String TenTk=sharedPreferences.getString("taikhoan","");
                             if (!TextUtils.isEmpty(TenTk)) {
@@ -147,7 +145,7 @@ public class MainCart extends AppCompatActivity {
         }
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         tvTongTien.setText(decimalFormat.format(tongTien) + " VNĐ");
-        //}
+
     }
 }
 

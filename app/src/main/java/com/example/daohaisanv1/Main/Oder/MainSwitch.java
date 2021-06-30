@@ -34,7 +34,6 @@ public class MainSwitch extends AppCompatActivity {
     ListView lvvc;
     Toolbar toolbar;
     AdapterSwitch advc;
-  //  ArrayList<objvanchuyen> vc;
     ArrayList<Cart> vc;
     String urlvc = ConnectServer.vanchuyen;
     private static Integer gia=0;
@@ -44,7 +43,6 @@ public class MainSwitch extends AppCompatActivity {
         setContentView(R.layout.activity_vanchuyen);
         lvvc=findViewById(R.id.lvvanchuyen);
         vc = new ArrayList<Cart>();
-       // advc = new adapvc(vanchuyen.this, vc);
         lvvc.setAdapter(advc);
         getkhachhang();
         lv();
@@ -55,8 +53,7 @@ public class MainSwitch extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
 
                 Intent intent = new Intent(MainSwitch.this, MainOrder.class);
-              //  intent.putExtra("tendonvi", vc.get(i).getTen().toString());
-             //   intent.putExtra("phiship", vc.get(i).getPhiship()+"");
+
 
                 startActivity(intent);
 

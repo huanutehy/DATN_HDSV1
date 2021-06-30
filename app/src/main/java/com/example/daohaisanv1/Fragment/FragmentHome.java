@@ -65,45 +65,36 @@ import java.util.TimerTask;
 import me.relex.circleindicator.CircleIndicator;
 
 public class FragmentHome extends Fragment {
-    DrawerLayout drawerLayout;
-    BottomNavigationView bottomNavigationView;
+
     ViewFlipper viewFlipper;
     Toolbar toolbar;
     RecyclerView recyclerView, resale;
-    AdapterProduct adapcay;
+    AdapterProduct adaptersanpham;
     ImageButton gh;
     TextView xemthem, tvsreach;
-    ListView lvsale;
     ArrayList<Sale> ssale;
     AdapterSale sgg;
-    SearchView searchView;
-    boolean isloading, limitdata = false;
     public static ArrayList<Product> sp;
     public static ArrayList<Favourite> yt;
 
-    String urlcaycanh = ConnectServer.trangchu;
+    String urlsanpham = ConnectServer.trangchu;
     String urlsale = ConnectServer.sale;
 
     public static ArrayList<Cart> listgh;
     public static ArrayList<Customer> mangkhachHang;
     public static ArrayList<Bill> objdh;
     public static ArrayList<Product> vc;
-    //  public static ArrayList<objhome> listyt;
     private ViewPager viewPagerSlidePhoto;
     private Timer mTimer;
     private View mView;
     private AdapterBanner slidePhotoAdapter;
 
-    private RecyclerView rcvProduct, rcvSale;
     private CircleIndicator circleIndicator;
     List<SlidePhoto> listSlidePhoto = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.activity_main, container, false);
-
-
-        //atcProductSearch = mView.findViewById(R.id.atc_product_search);
 
 
         toolbar = view.findViewById(R.id.toolbarmanhinh);
@@ -119,18 +110,16 @@ public class FragmentHome extends Fragment {
         listSlidePhoto = getListSlidePhoto();
 
 
-        // searchView = view.findViewById(R.id.search);
         ssale = new ArrayList<Sale>();
         sgg = new AdapterSale(getActivity(), ssale);
         resale.setHasFixedSize(true);
         resale.setLayoutManager(new GridLayoutManager(getActivity(), 1));
         resale.setAdapter(sgg);
-        ////////////////////////////////////////////////////////////////////
         sp = new ArrayList<Product>();
-        adapcay = new AdapterProduct(getActivity(), sp);
+        adaptersanpham = new AdapterProduct(getActivity(), sp);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        recyclerView.setAdapter(adapcay);
+        recyclerView.setAdapter(adaptersanpham);
         if (listgh != null) {
         } else {
             listgh = new ArrayList<Cart>();
@@ -155,9 +144,8 @@ public class FragmentHome extends Fragment {
         } else {
             objdh = new ArrayList<Bill>();
         }
-        getcay();
+        getsanpham();
         getsale();
-        //Quangcao();
         event();
         setDataSlidePhotoAdapter();
         timkiem();
@@ -176,7 +164,7 @@ public class FragmentHome extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                adapcay.filter(s.trim());
+                adaptersanpham.filter(s.trim());
                 return false;
             }
         });
@@ -260,13 +248,7 @@ public class FragmentHome extends Fragment {
 
             }
         });
-//        searchView.setOnSearchClickListener(new View.OnClickListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.O)
-//            @Override
-//            public void onClick(View v) { ;
-//                adapcay.filter(v.toString());
-//            }
-//        });
+
     }
 
 
@@ -295,7 +277,6 @@ public class FragmentHome extends Fragment {
             ImageView image = new ImageView(getActivity());
             Picasso.get().load(QC.get(i)).into(image);
             image.setScaleType(ImageView.ScaleType.FIT_XY);
-            // image.setImageResource(QC.get(i));
             viewFlipper.addView(image);
         }
         viewFlipper.setFlipInterval(5000);
@@ -349,10 +330,10 @@ public class FragmentHome extends Fragment {
         resale.setLayoutManager(layoutManager);
     }
 
-    private void getcay() {
+    private void getsanpham() {
 
         RequestQueue connnect = Volley.newRequestQueue(getActivity());
-        JsonArrayRequest jsonArray = new JsonArrayRequest(Request.Method.GET, urlcaycanh, null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArray = new JsonArrayRequest(Request.Method.GET, urlsanpham, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
@@ -374,7 +355,7 @@ public class FragmentHome extends Fragment {
 
                 }
 
-                adapcay.notifyDataSetChanged();
+                adaptersanpham.notifyDataSetChanged();
                 Toast.makeText(getContext().getApplicationContext(), "" + ssale.size(), Toast.LENGTH_SHORT).show();
             }
 

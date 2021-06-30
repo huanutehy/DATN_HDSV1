@@ -27,8 +27,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     public AdapterProduct(Context applicationContext, ArrayList<Product> sp) {
         this.context= applicationContext;
         this.listhome= sp;
-//        this.sreachhome= new ArrayList<objhome>();
-//        this.sreachhome.addAll(listhome);
+
     }
 
 
@@ -74,11 +73,9 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // objcay cay = listcay.get(getAdapterPosition());
                     Intent intent = new Intent(context, MainInfoProduct.class);
                     intent.putExtra("trangchu", listhome.get(getPosition()));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    // Toast.makeText(context, listcay.get(getPosition()).getProductName(), Toast.LENGTH_SHORT).show();
                     context.startActivity(intent);
                 }
             });

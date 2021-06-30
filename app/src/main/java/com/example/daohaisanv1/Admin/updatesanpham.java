@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -40,6 +40,15 @@ public class updatesanpham extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_updatesanpham);
+        toolbar = findViewById(R.id.tool);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         EventBus.getDefault().register(this);
         Intent intent = getIntent();
         sp = (Product) intent.getSerializableExtra("updatesanpham");
@@ -55,28 +64,19 @@ public class updatesanpham extends AppCompatActivity {
         mota=findViewById(R.id.upmota);
         ///////////////////////////////
         ten.setText(sp.getTensp());
-        gia.setText(sp.getGt()+" VND");
+        gia.setText(sp.getGt()+"VND");
         img.setText(sp.getImgsp());
         mota.setText(sp.getMota());
-        toolbar=findViewById(R.id.tool);
-        toolbar.setNavigationIcon(R.drawable.back2);
-        toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(updatesanpham.this, sanpham.class);
-                startActivity(intent);
-            }
 
-        });
         update=findViewById(R.id.btnupdate);
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String tensp = ten.getText().toString().trim();
-                String gia1 = gia.getText().toString().trim();
+                int gia1 = Integer.parseInt(gia.getText().toString().trim());
                 String link = img.getText().toString().trim();
                 String mt = mota.getText().toString().trim();
-                if (tensp.matches("") || gia1.equals("") || link.equals("") || mt.length()==0) {
+                if (tensp.matches("")  || link.equals("") || mt.length()==0) {
                     Toast.makeText(updatesanpham.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
 
                 } else {

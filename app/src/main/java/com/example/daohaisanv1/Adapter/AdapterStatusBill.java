@@ -117,7 +117,7 @@ public class AdapterStatusBill extends BaseAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent(context, MainInfoBill.class);
                 // intent.putExtra("chitiethoadon",arrayxacnhan.get(position));
-                intent.putExtra("madonhang", "#" + objdh.get(position).getIddh() + "");
+                intent.putExtra("madonhang",objdh.get(position).getIddh() + "");
                 intent.putExtra("sdt", "0" + objdh.get(position).getSdt() + "");
                 intent.putExtra("tenkh", objdh.get(position).getTenkh().toString());
                 intent.putExtra("diachi", objdh.get(position).getDiachigh().toString());

@@ -50,7 +50,5 @@ public class Switch {
 
 
 
-//    public int tt() {
-////return tongTien()+phiship;
-//   // }
+
 }

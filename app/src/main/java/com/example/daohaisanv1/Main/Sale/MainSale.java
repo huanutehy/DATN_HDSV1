@@ -44,7 +44,6 @@ public class MainSale extends AppCompatActivity {
         setContentView(R.layout.activity_giamgia);
         gh= findViewById(R.id.daogiohang);
 
-        //adap = new adapsale(getActivity(), obj);
         recyclerView = findViewById(R.id.giamgia);
         obj = new ArrayList<Sale>();
         adap = new AdapterSale(MainSale.this, obj);
@@ -74,7 +73,6 @@ public class MainSale extends AppCompatActivity {
                         int id = jsonsp.getInt("id");
                         String tensp = jsonsp.getString("tencay");
                         int gia = jsonsp.getInt("gia");
-                        //     int giam = jsonsp.getInt("giamoi");
                         int sale = jsonsp.getInt("sale");
                         String igmsp = jsonsp.getString("igmcay");
                         String mota = jsonsp.getString("mota");

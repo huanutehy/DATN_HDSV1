@@ -17,10 +17,12 @@
 
 </androidx.appcompat.widget.Toolbar>
     <Button
+        android:drawableLeft="@drawable/userr"
+        android:drawableTint="#FF9800"
         android:id="@+id/updatetk"
         android:layout_marginTop="10dp"
         android:text="Cập nhật thông tin"
-        android:background="#FFFFFF"
+        android:backgroundTint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -28,7 +30,7 @@
     <Button
         android:id="@+id/dcshop"
         android:text="Địa chỉ Shop"
-        android:background="#FFFFFF"
+        android:backgroundTint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -43,7 +45,7 @@
         android:textStyle="bold"
         android:layout_marginTop="10dp"
 
-        android:background="#FFFFFF"
+        android:backgroundTint="@color/white"
         android:textColor="#F44336"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -54,7 +56,7 @@
             android:text="Đăng Nhập"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
-            android:background="#FFFFFF"
+            android:backgroundTint="@color/white"
             android:textColor="#F44336"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

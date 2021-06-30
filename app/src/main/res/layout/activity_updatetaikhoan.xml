@@ -7,12 +7,17 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolupdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:title="Cập nhật tài khoản"
-        app:titleTextColor="#000000">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Cập nhật thông tin tài khoản"
+        android:background="#3C9DEA"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"/>
 
-    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +33,7 @@
 
             <EditText
                 android:id="@+id/edtaikhoan"
+                android:backgroundTint="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tài khoản"
@@ -46,6 +52,7 @@
                 android:id="@+id/edhoten"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
                 android:hint="Họ Tên"
                  />
         </com.google.android.material.textfield.TextInputLayout>
@@ -58,6 +65,7 @@
             android:layout_marginBottom="5dp">
 
             <EditText
+                android:backgroundTint="@color/white"
                 android:id="@+id/edgioitinh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,6 +84,7 @@
                 android:id="@+id/eddiachi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
                 android:hint="Địa Chỉ"
                  />
         </com.google.android.material.textfield.TextInputLayout>
@@ -91,6 +100,7 @@
                 android:id="@+id/eddate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
                 android:hint="Ngày Sinh"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -107,6 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:backgroundTint="@color/white"
                 android:hint="Số Điện Thoại"
                />
         </com.google.android.material.textfield.TextInputLayout>
@@ -123,6 +134,7 @@
                 android:id="@+id/edemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
                 android:hint="Email"
                />
         </com.google.android.material.textfield.TextInputLayout>
@@ -140,7 +152,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Mật Khẩu"
                 android:inputType="textPassword"
-             />
+                android:backgroundTint="@color/white"
+
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -152,9 +166,9 @@
 
             <Button
                 android:id="@+id/btnluuthongtin"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#F44336"
+                android:backgroundTint="#FF9800"
                 android:text="Lưu"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />

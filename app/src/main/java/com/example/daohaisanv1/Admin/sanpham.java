@@ -1,6 +1,7 @@
 package com.example.daohaisanv1.Admin;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -48,7 +49,9 @@ public class sanpham extends AppCompatActivity {
         //sp = new ArrayList<objsanpham>();
         tbsanpham = findViewById(R.id.tbsanpham);
 
-        tbsanpham.setNavigationIcon(R.drawable.back2);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            tbsanpham.setNavigationIcon(R.drawable.back2);
+        }
         tbsanpham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -84,7 +84,7 @@ public class Navigation extends AppCompatActivity {
             bottomNav.getMenu().findItem(R.id.trangchu).setVisible(true);
             bottomNav.getMenu().findItem(R.id.dao).setVisible(false);
             bottomNav.getMenu().findItem(R.id.yeuthich).setVisible(false);
-            bottomNav.getMenu().findItem(R.id.taikhoan).setVisible(true);
+            bottomNav.getMenu().findItem(R.id.taikhoan).setVisible(false);
             bottomNav.getMenu().findItem(R.id.thongke).setVisible(true);
 
         }else {

@@ -7,7 +7,7 @@
 <androidx.appcompat.widget.Toolbar
     android:id="@+id/tbdonhang"
     app:title="Đơn hàng của tôi"
-    android:background="#F44336"
+    android:background="#1C80CF"
     app:titleTextColor="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">

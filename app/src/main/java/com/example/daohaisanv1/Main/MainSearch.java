@@ -41,7 +41,6 @@ public class MainSearch extends AppCompatActivity {
         setContentView(R.layout.activity_sreach);
         recyclerView = findViewById(R.id.rcsearch);
         searchView = findViewById(R.id.search);
-//        searchView.setQueryHint("Bạn cần mua gì....");
 
 
 

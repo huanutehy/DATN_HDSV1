@@ -52,7 +52,6 @@ public class FragmentProfile extends Fragment {
     private int i;
     ImageView tt;
     RecyclerView recyclerView;
- //   Button btn, set, dh, dn;
     ArrayList<Favourite> yeut;
     public static ArrayList<Product> sp;
     AdapterProduct adapcay;
@@ -60,7 +59,6 @@ public class FragmentProfile extends Fragment {
     //public static List<objacc> acc = new ArrayList<>();
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    //////////////////////////////////
     private SharedPreferences sharedPreferences1;
     private SharedPreferences.Editor editor1;
 
@@ -68,11 +66,7 @@ public class FragmentProfile extends Fragment {
         View view = inflater.inflate(R.layout.activity_dashboard, container, false);
         EventBus.getDefault().register(this);
         hoten1 = view.findViewById(R.id.hotennguoidung);
-//        gioitinh = view.findViewById(R.id.gioitinh);
-//        date = view.findViewById(R.id.ngaysinh);
-//        mail = view.findViewById(R.id.gmail);
-//        sdt1 = view.findViewById(R.id.tv_sdt);
-//        dc = view.findViewById(R.id.tv_diachi);
+
         tt = view.findViewById(R.id.imgthongtin);
 
         btndangxuat = view.findViewById(R.id.btndangxuat);
@@ -83,7 +77,6 @@ public class FragmentProfile extends Fragment {
         xemlsdh = view.findViewById(R.id.btndonhang);
         like = view.findViewById(R.id.txtlike);
         cho = view.findViewById(R.id.tinh);
-       // set = view.findViewById(R.id.setting);
         sp = new ArrayList<Product>();
         adapcay = new AdapterProduct(getActivity(), sp);
         recyclerView.setHasFixedSize(true);
@@ -93,15 +86,12 @@ public class FragmentProfile extends Fragment {
 
         sharedPreferences = getContext().getSharedPreferences("luutaikhoan", getContext().MODE_PRIVATE);
         editor = sharedPreferences.edit();
-        ////////////////////////////////////////////
         sharedPreferences1 = getContext().getSharedPreferences("chitiet", getContext().MODE_PRIVATE);
         editor1 = sharedPreferences1.edit();
 
         CheckData();
         onclick();
-      //  check();
         getcay();
-
         diachishop();
         checkdangnhap();
         dangnhap();
@@ -249,16 +239,10 @@ public class FragmentProfile extends Fragment {
             hoten1.setText(sharedPreferences.getString("hoten", ""));
 
 
-            //  tt.setImageBitmap(sharedPreferences.getString("imgtk",));
-//            Picasso.get().load(sharedPreferences.getString("imgtk",""));
 
         } else {
             hoten1.setText("Tên người dùng");
-//            gioitinh.setText("");
-//            date.setText("");
-//            mail.setText("");
-//            sdt1.setText("");
-//            dc.setText("");
+
 
         }
     }

@@ -6,40 +6,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBarGioHang"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentTop="true"
-        android:background="#FFFFFF"
-        app:navigationIcon="@drawable/ic_detail_back"
-        app:title="Giỏ hàng của tôi"
-        app:titleTextColor="#000000">
-
-        <TextView
-            android:id="@+id/numbercart"
-            android:layout_width="40dp"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_alignParentTop="true"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:text="(2)"
-            >
-
-        </TextView>
-    </androidx.appcompat.widget.Toolbar>
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Giỏ hàng"
+        android:background="#3C9DEA"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"/>
 
     <ListView
+        android:layout_margin="5dp"
         android:id="@+id/lvGioHang"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/line1"
         android:layout_below="@id/toolBarGioHang" />
-
-
-    -
 
     <LinearLayout
         android:id="@+id/line1"
@@ -84,7 +70,7 @@
             android:layout_weight="7"
             android:text="Tiếp tục mua hàng"
             android:textColor="#FFFFFF"
-            app:backgroundTint="#00BCD4"></Button>
+            app:backgroundTint="#3C9DEA"></Button>
 
         <Button
             android:id="@+id/thanhtoan"
@@ -94,7 +80,7 @@
             android:layout_weight="3"
             android:text="Đặt Hàng"
             android:textColor="#FFFFFF"
-            app:backgroundTint="#00BCD4" />
+            app:backgroundTint="#3C9DEA" />
 
     </LinearLayout>
 

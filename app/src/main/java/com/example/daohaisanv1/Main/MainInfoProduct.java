@@ -50,18 +50,18 @@ import static com.example.daohaisanv1.Fragment.FragmentHome.listgh;
 
 
 public class MainInfoProduct extends AppCompatActivity {
+    Toolbar toolbar;
+
     Product sp;
     Sale sl;
     ImageView imgcayct, yt;
     Cart gh;
     TextView ctcay, ctgia, ctmota;
-    Toolbar toolbar;
-    Integer[] soluong;
     EditText edgiatri;
     Button tang, giam, mg;
     FloatingActionButton call;
     String urlyt = ConnectServer.addyeuthich;
-    ImageButton addgh;
+    Button btn_add;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -73,14 +73,21 @@ public class MainInfoProduct extends AppCompatActivity {
             Window w = getWindow();
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
+        toolbar = findViewById(R.id.toolBarthongtinchitietsanpham);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         anhxa();
         getDataChiTiet();
         themgh();
         soluong();
-        // muangay();
-        // sale();
         onclick();
-//      getdatacay();
+
     }
 
     private void anhxa() {
@@ -92,22 +99,12 @@ public class MainInfoProduct extends AppCompatActivity {
         giam = findViewById(R.id.butongiam);
         edgiatri = findViewById(R.id.edtgiatri);
         call = findViewById(R.id.call);
-        mg = findViewById(R.id.muangay);
-        addgh = (ImageButton) findViewById(R.id.addgiohang);
+        mg = findViewById(R.id.btn_muangay);
+        btn_add = (Button) findViewById(R.id.btn_giohang) ;
         sharedPreferences = this.getSharedPreferences("luutaikhoan", this.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         yt = findViewById(R.id.like);
-//                    if (thongtin.acc.size() == 0) {
-//                        Intent intent = new Intent(giohang.this, dangnhap.class);
-//                        startActivity(intent);
-//                    } else {
-//                        Intent intent = new Intent(giohang.this, thanhtoan.class);
-//                        startActivity(intent);
-//                    }
-//                } else {
-//                    Toast.makeText(giohang.this, "Bạn chưa nhập sản phẩm nào cho giỏ hàng!", Toast.LENGTH_SHORT).show();
-//                    return;
         yt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +116,6 @@ public class MainInfoProduct extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), MainLogin.class));
 
                     finish();
-
 
                 }
             }
@@ -140,24 +136,13 @@ public class MainInfoProduct extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 
                         Intent intent = new Intent(Intent.ACTION_CALL);
-                        intent.setData(Uri.parse("tel:0979951954"));
+                        intent.setData(Uri.parse("tel:0329455777"));
                         if (ActivityCompat.checkSelfPermission(MainInfoProduct.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                             reques();
                             // TODO: Consider calling
                             //    Activity#requestPermissions
                         } else {
                             startActivity(intent);
-
-//                if (trangchu.sp.size() > 0) {
-//                    if (thongtin.acc.size() == 0) {
-//                        Intent intent = new Intent(chitietsanpham.this, dangnhap.class);
-//                        startActivity(intent);
-//                    } else {
-//                        Intent intent = new Intent(chitietsanpham.this, thanhtoan.class);
-//                        startActivity(intent);
-//                    }
-//
-//                }
 
                         }
                     }
@@ -169,7 +154,6 @@ public class MainInfoProduct extends AppCompatActivity {
                     }
                 });
                 builder.show();
-                //   return false;
 
             }
 
@@ -189,11 +173,7 @@ public class MainInfoProduct extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.d("load ", response.toString());
                 if (response != null) {
-                    //for (int i = 0; i < vc.; i++) {
-                    // String tensp = vc.get(i).getTensp();
                     Toast.makeText(MainInfoProduct.this, "Đã thêm vào danh sách yêu thích!", Toast.LENGTH_SHORT).show();
-                    // startActivity(new Intent(chitietsanpham.this, giohang.class));
-                    // }
                 } else {
                     Toast.makeText(MainInfoProduct.this, "Lỗi thêm ", Toast.LENGTH_SHORT).show();
                 }
@@ -218,9 +198,7 @@ public class MainInfoProduct extends AppCompatActivity {
                 return pra;
             }
         };
-
         queue.add(stringRequest);
-
 
     }
 
@@ -280,10 +258,10 @@ public class MainInfoProduct extends AppCompatActivity {
     }
 
     private void themgh() {
-        addgh.setOnClickListener(new View.OnClickListener() {
+
+        btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //   if (listgh.size()>0) {
                 boolean exist = false;
                 for (int i = 0; i < listgh.size(); i++) {
                     if (listgh.get(i).getIdgh() == sp.getIdsp()) {

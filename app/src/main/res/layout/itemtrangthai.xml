@@ -36,7 +36,9 @@
                             android:layout_width="97dp"
                             android:layout_height="89dp"
                             android:layout_marginLeft="10dp"
-                            android:background="@drawable/ic_developer_board_black_24dp"></ImageView>
+                            android:background="@drawable/statusoder">
+
+                        </ImageView>
 
                     </FrameLayout>
 
@@ -72,13 +74,18 @@
                         <TableRow
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-
-
                             <TextView
+                                android:layout_width="111dp"
+                                android:layout_height="wrap_content"
+                                android:text="Tên KH : "
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:gravity="center"
                                 android:id="@+id/tvxntenkh"
                                 android:layout_width="151dp"
                                 android:layout_height="wrap_content"
-
                                 android:text="Tên khách hàng"
                                 android:textColor="#000000"
                                 android:textSize="15dp"
@@ -90,13 +97,19 @@
                         <TableRow
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-
-
                             <TextView
+                                android:layout_width="111dp"
+                                android:layout_height="wrap_content"
+                                android:text="Địa chỉ nhận : "
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:gravity="center"
                                 android:id="@+id/ttvdiachi"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Phụng Công Văn Giang Hưng Yên"
+                                android:text="Hưng Yên"
                                 android:textColor="#000000"
                                 android:textSize="18dp" />
                         </TableRow>
@@ -150,12 +163,11 @@
 
                             <Button
                                 android:id="@+id/btnsend"
-                                android:layout_width="wrap_content"
+                                android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:layout_gravity="center"
-                                android:background="#FF5722"
-                                android:text=">>"
-                                android:textColor="#fff" />
+                                android:backgroundTint="#E3AE0E"
+                               />
                         </TableRow>
 
                         <Spinner
@@ -174,8 +186,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
-                    android:background="#FF9800"
+                    android:backgroundTint="#2079BF"
                     android:layout_marginBottom="5dp"
+                    android:textColor="@color/white"
                     android:text="Xóa" />
             </LinearLayout>
         </FrameLayout>

@@ -8,15 +8,20 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_thongke"
+        android:background="#1C80CF"
+        app:titleTextColor="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="Thống kê"></androidx.appcompat.widget.Toolbar>
+        app:title="Thống kê">
+
+    </androidx.appcompat.widget.Toolbar>
     <EditText
         android:id="@+id/edt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
+        android:backgroundTint="@color/white"
         android:id="@+id/btnNam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

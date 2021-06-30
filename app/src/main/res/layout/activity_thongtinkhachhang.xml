@@ -25,6 +25,8 @@
             android:layout_width="378dp"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+
             android:hint=""
             android:inputType="text" />
 
@@ -39,6 +41,7 @@
             android:id="@+id/hoten"
             android:layout_width="378dp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/white"
 
             android:layout_height="wrap_content"
             android:hint="Họ tên"
@@ -56,6 +59,7 @@
             android:id="@+id/sdt"
             android:layout_width="378dp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/white"
 
             android:layout_height="wrap_content"
             android:hint="Số điện thoại"
@@ -73,6 +77,7 @@
             android:id="@+id/diachi"
             android:layout_width="380dp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/white"
 
             android:layout_height="wrap_content"
             android:hint="Địa chỉ"
@@ -92,7 +97,7 @@
             android:id="@+id/themkhachhang"
             android:layout_width="274dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/botron"
+            android:backgroundTint="#FF9800"
             android:ems="10"
             android:text="Lưu"
             android:textColor="#000000"

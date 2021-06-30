@@ -6,13 +6,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Fragment.FragmentFavourite">
-<Toolbar
-    android:layout_width="match_parent"
-    android:title="Danh Sách Yêu Thích"
-    android:background="#F44336"
-    android:titleTextColor="#FFFFFF"
-    android:layout_height="wrap_content"
-    ></Toolbar>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolyeuthich"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Danh sách mặt hàng yêu thích"
+        android:background="#3C9DEA"
+        app:titleTextColor="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"/>
     <ListView
         android:id="@+id/lvyt"
         android:layout_width="match_parent"
